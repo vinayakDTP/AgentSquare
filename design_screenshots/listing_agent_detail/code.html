@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Listing Manager Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-fixed-dim": "#cfc6ae",
+                "inverse-surface": "#2a313d",
+                "outline": "#6f7979",
+                "on-primary": "#ffffff",
+                "surface-container-highest": "#dce2f3",
+                "tertiary-fixed": "#ece2c9",
+                "secondary-container": "#d8e1e0",
+                "secondary-fixed-dim": "#bfc8c7",
+                "on-surface": "#151c27",
+                "primary-fixed-dim": "#87d3d7",
+                "on-secondary-container": "#5b6464",
+                "on-tertiary": "#ffffff",
+                "error-container": "#ffdad6",
+                "primary-container": "#5da9ad",
+                "outline-variant": "#bec8c9",
+                "surface": "#f9f9ff",
+                "surface-container": "#e7eefe",
+                "on-tertiary-fixed": "#201b0c",
+                "surface-container-lowest": "#ffffff",
+                "surface-bright": "#f9f9ff",
+                "surface-tint": "#0c696d",
+                "secondary": "#576060",
+                "on-primary-fixed-variant": "#004f52",
+                "on-secondary-fixed": "#151d1d",
+                "on-tertiary-container": "#3a3523",
+                "on-error": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-secondary": "#ffffff",
+                "on-secondary-fixed-variant": "#404848",
+                "on-primary-container": "#003b3e",
+                "primary": "#0c696d",
+                "on-surface-variant": "#3f4949",
+                "tertiary": "#645e4b",
+                "on-tertiary-fixed-variant": "#4c4634",
+                "surface-container-low": "#f0f3ff",
+                "inverse-on-surface": "#ebf1ff",
+                "background": "#f9f9ff",
+                "surface-container-high": "#e2e8f8",
+                "on-primary-fixed": "#002021",
+                "surface-variant": "#dce2f3",
+                "inverse-primary": "#87d3d7",
+                "secondary-fixed": "#dbe4e3",
+                "on-background": "#151c27",
+                "tertiary-container": "#a59d87",
+                "primary-fixed": "#a3eff3",
+                "surface-dim": "#d3daea",
+                "error": "#ba1a1a"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "sm": "12px",
+                "base": "8px",
+                "xs": "4px",
+                "xl": "80px",
+                "margin": "32px",
+                "lg": "48px",
+                "gutter": "24px",
+                "md": "24px"
+        },
+        "fontFamily": {
+                "label-sm": [
+                        "Inter"
+                ],
+                "h2": [
+                        "Plus Jakarta Sans"
+                ],
+                "h1": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "h3": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "label-sm": [
+                        "13px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "h2": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "h1": [
+                        "40px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "h3": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen relative">
+<header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.04)] fixed top-0 w-full px-6 py-4 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 docked full-width z-50">
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-h1 font-semibold text-lg tracking-tight text-primary">AgentSquare</h1>
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close up of a modern minimalist 3d rendered avatar headshot against a soft pastel background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPF9EWslx9-lGj7Ui9YsFNaDXBCjk7qut9Qg426_YNmfyweMx_HfUEyh3pDbYeJaeUALRhZw3YkmFhM_Q0vqAe0vwQTYgLorOmaf3rVJzX9dJlSp4cDU0q42dru0s1qsTo96x28vTI4WW3jBaHcbJA_YQSheyR5ivFspeg-uceOfRAuFY_7V1BC0xHm9HC0wLLOFXgBqcIHmyCmJ6hiyvOJxlTBDfWeeifUZWrAi1u0wBLmFtl800GqmbFX9i1ziS_31hNaeUx8cw"/>
+</div>
+</header>
+<main class="pt-[90px] pb-[160px] px-gutter max-w-2xl mx-auto">
+<div class="flex flex-col items-center mt-sm mb-lg">
+<div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-sm shadow-[0_20px_40px_rgba(0,0,0,0.04)] relative">
+<span class="material-symbols-outlined text-h2 text-primary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-primary border-2 border-surface rounded-full"></div>
+</div>
+<h2 class="font-h2 text-h2 text-on-surface mb-xs text-center">Listing Manager Alpha</h2>
+<div class="flex items-center gap-xs px-3 py-1.5 rounded-full border border-primary/20 bg-primary-container/20"><div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div><span class="font-label-sm text-label-sm text-on-primary-container">Active &amp; syncing</span></div>
+</div>
+<div class="grid grid-cols-2 gap-sm mb-lg">
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-md shadow-[0_20px_40px_rgba(0,0,0,0.04)] flex flex-col justify-between border border-outline-variant/30">
+<div class="flex items-center justify-between mb-sm">
+<span class="material-symbols-outlined text-primary">sync_saved_locally</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Portfolio Sync</p>
+<p class="font-h3 text-h3 text-on-surface">24/24</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-md shadow-[0_20px_40px_rgba(0,0,0,0.04)] flex flex-col justify-between border border-outline-variant/30">
+<div class="flex items-center justify-between mb-sm">
+<span class="material-symbols-outlined text-primary">monitor_heart</span>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2 py-0.5 rounded">+4%</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Market Health</p>
+<p class="font-h3 text-h3 text-on-surface">92<span class="text-body-md font-body-md text-on-surface-variant">/100</span></p>
+</div>
+</div>
+</div>
+<section class="mb-lg">
+<div class="flex items-center justify-between mb-sm">
+<h3 class="font-h3 text-h3 text-on-surface">Optimization Queue</h3>
+<span class="font-label-sm text-label-sm text-primary px-2 py-1 rounded-full bg-primary-container/20 text-on-primary-container">2 pending</span>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-md shadow-[0_20px_40px_rgba(0,0,0,0.04)] border border-outline-variant/30 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex justify-between items-start mb-sm pl-2">
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface mb-xs">The Glasshouse Retreat</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-[13px]">SEO Description Update</p>
+</div>
+<span class="material-symbols-outlined text-primary">auto_fix_high</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-sm mb-sm pl-4 ml-2 border-l-2 border-primary/30">
+<p class="font-body-md text-body-md text-on-surface-variant text-[14px]">AI recommends updating description for SEO based on recent local surge in searches for "modern glass homes".</p>
+</div>
+<button class="ml-2 w-[calc(100%-8px)] py-3 font-label-sm text-label-sm rounded-[1.5rem] transition-colors bg-surface-container text-on-primary-fixed-variant hover:bg-surface-container-high">Review Suggestion</button>
+</div>
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-md shadow-[0_20px_40px_rgba(0,0,0,0.04)] border border-outline-variant/30 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex justify-between items-start mb-sm pl-2">
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface mb-xs">Maplewood Phase II</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-[13px]">Media Sync Ready</p>
+</div>
+<span class="material-symbols-outlined text-primary">photo_library</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-sm mb-sm pl-4 ml-2 border-l-2 border-primary/30">
+<p class="font-body-md text-body-md text-on-surface-variant text-[14px]">New professional photos detected in connected drive. Ready to auto-sync to primary listing platform.</p>
+</div>
+<button class="ml-2 w-[calc(100%-8px)] py-3 bg-primary text-on-primary font-label-sm text-label-sm rounded-[1.5rem] hover:opacity-90 transition-opacity shadow-[0_8px_16px_rgba(12,105,109,0.15)]">Sync Now</button>
+</div>
+</div>
+</section>
+<section class="mb-lg">
+<h3 class="font-h3 text-h3 text-on-surface mb-sm">Useful Market Discoveries</h3>
+<div class="flex gap-sm overflow-x-auto pb-md snap-x snap-mandatory -mx-gutter px-gutter hide-scrollbar" style="scrollbar-width: none; -ms-overflow-style: none;">
+<div class="min-w-[260px] max-w-[280px] bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.04)] snap-center flex-shrink-0 border border-outline-variant/30 flex flex-col">
+<div class="h-32 w-full bg-surface-variant relative">
+<img class="w-full h-full object-cover" data-alt="exterior view of a luxury modern mansion with large windows and warm interior lighting at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHPlmIDfm4GLTawdt-RK4uhRqjPNsKv06fiCTswraghImw-X0gWuU5Nxx18JUEb1VNMehUi9KoNfCXCXpaJmpQ21qgzpfWYoowR2ryG70mMs_tHhHFmZsx1TiL5Lxd0OW0DpFn_72prp0DQUkgLxjX2puzrdjrqGk0SB1bkz5O-dZTO5r9NmvpTJSChmfBUjtEJu0WzahXyXTuSvCZjFRtJFyx21K5VAVoAzhg7SXE3Tl0nUNq-Hr-p26aSx1TzC0EyCQIXh24pNw"/>
+<div class="absolute top-sm left-sm bg-secondary-container/90 backdrop-blur-sm text-on-secondary-container font-label-sm text-label-sm px-2 py-1 rounded-full text-[11px] shadow-sm">External</div>
+</div>
+<div class="p-sm flex-1 flex flex-col">
+<h4 class="font-label-sm text-label-sm text-on-surface mb-xs line-clamp-1">3BR Condo in Beverly Hills</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px] mb-sm">$2.45M • 2,100 sqft</p>
+<div class="mt-auto flex items-start gap-2 bg-inverse-on-surface p-2 rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<p class="font-label-sm text-label-sm text-primary text-[12px] leading-tight">High match for Client Sarah J. based on target area.</p>
+</div>
+</div>
+</div>
+<div class="min-w-[260px] max-w-[280px] bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.04)] snap-center flex-shrink-0 border border-outline-variant/30 flex flex-col">
+<div class="h-32 w-full bg-surface-variant relative">
+<img class="w-full h-full object-cover" data-alt="modern minimalist living room with white walls, light wood floors, and soft natural sunlight streaming through windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF1GkAYBL5z9vcgT1feEohrirPtWlKFb3Xw__-lst_bXrYGCKYF5wgf4tMxj5auewaSuI399hwalLfE5Nl4NMGEIgVPDKz4AvRMd8gooHgf1WrteZ0UGRm28h31uMKTf3iNWHfc8H9uM5eopR4C-sxP9FHro96dn2ga-C6s1mpa-XGz1BHuwc_C38-0qNu_-XTZmyQV1T9e6RWeq_LkRAg6ELHwqMpyV-pTA2AjuclLrLjBialFw6i4k_p5UN_z-nauH-cR5YVS2Q"/>
+<div class="absolute top-sm left-sm bg-secondary-container/90 backdrop-blur-sm text-on-secondary-container font-label-sm text-label-sm px-2 py-1 rounded-full text-[11px] shadow-sm">Price drop</div>
+</div>
+<div class="p-sm flex-1 flex flex-col">
+<h4 class="font-label-sm text-label-sm text-on-surface mb-xs line-clamp-1">Minimalist Loft, Downtown</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px] mb-sm">$850k • 1,200 sqft</p>
+<div class="mt-auto flex items-start gap-2 bg-inverse-on-surface p-2 rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-primary text-[16px] mt-0.5" style="font-variation-settings: 'FILL' 1;">trending_down</span>
+<p class="font-label-sm text-label-sm text-primary text-[12px] leading-tight">Price dropped 5% - aligns with saved alert criteria.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<div class="fixed bottom-[84px] right-4 z-50 flex justify-end group">
+<div class="flex items-center bg-surface-container rounded-full shadow-lg shadow-primary/20 overflow-hidden w-14 group-hover:w-[calc(100vw-32px)] max-w-[400px] focus-within:w-[calc(100vw-32px)] transition-all duration-300 ease-out">
+<button class="w-14 h-14 rounded-full flex-shrink-0 flex items-center justify-center text-primary relative z-10 transition-colors opacity-0 group-hover:opacity-100 focus-within:opacity-100 w-0 group-hover:w-14 focus-within:w-14">
+<span class="material-symbols-outlined">mic</span>
+</button>
+<div class="flex-1 flex items-center opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+<input class="w-full bg-transparent border-none p-0 text-body-md placeholder:text-on-surface-variant focus:ring-0" placeholder="Ask your agents..." type="text"/>
+</div>
+<button class="w-14 h-14 rounded-full bg-primary flex-shrink-0 flex items-center justify-center text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined group-hover:hidden focus-within:hidden">mic</span>
+<span class="material-symbols-outlined hidden group-hover:block focus-within:block">arrow_forward</span>
+</button>
+</div>
+</div>
+<nav class="fixed bottom-0 w-full bg-surface border-t border-outline-variant/20 px-6 py-2 z-50 flex justify-around items-center pb-safe shadow-[0_-10px_40px_rgba(0,0,0,0.04)]">
+<a class="flex flex-col items-center gap-1 p-2" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">home</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Activity feed</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-label-sm text-[11px] text-primary">Agents</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">group</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Network</span>
+</a>
+</nav>
+</body></html>

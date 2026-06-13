@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Hub - Estates</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-fixed-dim": "#cfc6ae",
+                "inverse-surface": "#2a313d",
+                "outline": "#6f7979",
+                "on-primary": "#ffffff",
+                "surface-container-highest": "#dce2f3",
+                "tertiary-fixed": "#ece2c9",
+                "secondary-container": "#d8e1e0",
+                "secondary-fixed-dim": "#bfc8c7",
+                "on-surface": "#151c27",
+                "primary-fixed-dim": "#87d3d7",
+                "on-secondary-container": "#5b6464",
+                "on-tertiary": "#ffffff",
+                "error-container": "#ffdad6",
+                "primary-container": "#5da9ad",
+                "outline-variant": "#bec8c9",
+                "surface": "#f9f9ff",
+                "surface-container": "#e7eefe",
+                "on-tertiary-fixed": "#201b0c",
+                "surface-container-lowest": "#ffffff",
+                "surface-bright": "#f9f9ff",
+                "surface-tint": "#0c696d",
+                "secondary": "#576060",
+                "on-primary-fixed-variant": "#004f52",
+                "on-secondary-fixed": "#151d1d",
+                "on-tertiary-container": "#3a3523",
+                "on-error": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-secondary": "#ffffff",
+                "on-secondary-fixed-variant": "#404848",
+                "on-primary-container": "#003b3e",
+                "primary": "#0c696d",
+                "on-surface-variant": "#3f4949",
+                "tertiary": "#645e4b",
+                "on-tertiary-fixed-variant": "#4c4634",
+                "surface-container-low": "#f0f3ff",
+                "inverse-on-surface": "#ebf1ff",
+                "background": "#f9f9ff",
+                "surface-container-high": "#e2e8f8",
+                "on-primary-fixed": "#002021",
+                "surface-variant": "#dce2f3",
+                "inverse-primary": "#87d3d7",
+                "secondary-fixed": "#dbe4e3",
+                "on-background": "#151c27",
+                "tertiary-container": "#a59d87",
+                "primary-fixed": "#a3eff3",
+                "surface-dim": "#d3daea",
+                "error": "#ba1a1a"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "sm": "12px",
+                "base": "8px",
+                "xs": "4px",
+                "xl": "80px",
+                "margin": "32px",
+                "lg": "48px",
+                "gutter": "24px",
+                "md": "24px"
+        },
+        "fontFamily": {
+                "label-sm": [
+                        "Inter"
+                ],
+                "h2": [
+                        "Plus Jakarta Sans"
+                ],
+                "h1": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "h3": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "label-sm": [
+                        "13px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "h2": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "h1": [
+                        "40px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "h3": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for horizontal lists */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Safe area padding for bottom nav */
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white/90 backdrop-blur-md border-b border-primary/5 shadow-sm shadow-primary/5">
+<button class="text-primary hover:bg-primary/5 transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="text-xl font-bold text-primary">AgentSquare</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-primary/20 flex items-center justify-center">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="close up portrait of a young professional woman with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAETVNEkoItF-ia6dWDD6fQIB_ONHgzpKi99iPmdnwnbk8co59CO8vcylB7vzPFLliM1mV6JP75NvuYJKY-rzqBErbU_qLHoYlR7XijHgmfw6UcRsdXFl1Anc99hjx5VooGJD-x_VS-88HqMo58eT2YggRsTsl014fMwOXBxuyVYt6oEmP8ECzHzTMDXA0na5wgroqTFpYIkbzaEjtg8WFtV8MqAql2YPbisSQezsPvv4vA6365Huzk3g71krtNCoe5NS2vfIDAJM"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 overflow-y-auto px-6 pt-[104px] pb-[120px] max-w-7xl mx-auto w-full flex flex-col gap-lg">
+<!-- Header & Search -->
+<section class="flex flex-col gap-md">
+<div>
+<h1 class="font-h1 text-h1 text-on-surface">Project Hub</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Manage your active listings and discover new opportunities.</p>
+</div>
+<div class="relative w-full max-w-2xl">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</div>
+<input class="w-full bg-[#F3F4F6] border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl py-4 pl-12 pr-4 font-body-md text-body-md text-on-surface placeholder:text-outline transition-all shadow-[0_2px_10px_rgb(0,0,0,0.02)]" placeholder="Search projects, locations, or clients..." type="text"/>
+</div>
+<!-- Filters -->
+<div class="flex items-center gap-sm overflow-x-auto no-scrollbar pb-2">
+<button class="whitespace-nowrap px-5 py-2.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-[0_4px_12px_rgb(12,105,109,0.15)] transition-transform hover:scale-95 active:scale-90">All Projects</button>
+<button class="whitespace-nowrap px-5 py-2.5 rounded-full bg-[#e7eefe] text-[#004f52] hover:opacity-80 font-label-sm text-label-sm transition-colors border-none">Residential</button>
+<button class="whitespace-nowrap px-5 py-2.5 rounded-full bg-[#e7eefe] text-[#004f52] hover:opacity-80 font-label-sm text-label-sm transition-colors border-none">Commercial</button>
+<button class="whitespace-nowrap px-5 py-2.5 rounded-full bg-[#e7eefe] text-[#004f52] hover:opacity-80 font-label-sm text-label-sm transition-colors border-none">New Development</button>
+</div>
+</section>
+<!-- Active Projects Bento -->
+<section class="flex flex-col gap-md">
+<h2 class="font-h2 text-h2 text-on-surface">Active Portfolio</h2>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Featured Card (Spans more columns on desktop) -->
+<article class="md:col-span-8 bg-surface-container-lowest rounded-[1.5rem] shadow-[0_4px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col group transition-shadow hover:shadow-[0_8px_40px_rgb(0,0,0,0.06)] border border-primary/5">
+<div class="relative h-64 md:h-72 w-full overflow-hidden">
+<img alt="Modern estate exterior" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="exterior of a modern luxury architectural home with large glass windows and minimalist landscaping at twilight with warm interior lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgtI2f_CRXV4L-A4TEueM2UDc7Ci2prReUxie9zd-8aoEGV0xSi9MewoW5A33mCuIqP1vJ_7k_ywfLj4O1SEZXFLUB0MqSRa6HhncV8xwBAPmLQTco-MVCG457fcOdrUT4JqBT92GSGij4g3rLu1VuMpZqgixs25D-y44eWCnd6YZIFPK6gjSZLpHTDBkMKUh9jYNkeecNZqPIksoVTj8102kydG8ECrjkg7pba_HDIfFmghkLBhDhC-ooXNUHzhDh8Hd56NPtce8"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center px-3 py-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm shadow-sm backdrop-blur-sm bg-opacity-90"><span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-2"></span>In progress</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-4 flex-1">
+<div class="flex justify-between items-start gap-4">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">The Glasshouse Retreat</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span>
+                                    Beverly Hills, CA
+                                </p>
+</div>
+<div class="text-right">
+<p class="font-h3 text-h3 text-primary">$4,250,000</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Valuation</p>
+</div>
+</div>
+<!-- AI Bubble -->
+<div class="mt-auto bg-[#eaf4f4] rounded-xl rounded-tl-sm p-sm flex items-start gap-3 border border-primary-container/10">
+<div class="w-6 h-6 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="temp_preferences_custom">temp_preferences_custom</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-primary-container mb-0.5">AI Insights</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-[14px]">Buyer interest has increased by 15% this week. Consider scheduling an open house for this coming weekend.</p>
+</div>
+</div>
+</div>
+</article>
+<!-- Standard Card 1 -->
+<article class="md:col-span-4 bg-surface-container-lowest rounded-[1.5rem] shadow-[0_4px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col group transition-shadow hover:shadow-[0_8px_40px_rgb(0,0,0,0.06)] border border-primary/5">
+<div class="relative h-48 w-full overflow-hidden">
+<img alt="Suburban home" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="front exterior of a contemporary suburban home with a manicured green lawn and clear blue sky during daytime" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA11N3yHwmZxSIbfkoSrtQVIvAXI75BCm8CIs9YwWW6hYH8ZoSJI3fJYbt05HQy6rEpUibe6x8utMWEK86YwZCHXlBeaNxjnu-D1ZNOT4IBs8pachQDuS8WxqfUmGzllcdI0hE41cj79km00cmXFcz23ScXv0y96F9AYWel8xW1HVI03XQqW9Xb00wAz-wphVc4muWS7ibGnBAqRnhPhLMsbq88BN7i4S40EyeTliNFM1eI2KDsCHFhlvuEy2LKJGzxJCFc74X1B-o"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm backdrop-blur-sm bg-opacity-90 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant"><span class="w-1.5 h-1.5 rounded-full bg-secondary mr-2"></span>Closing soon</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-3 flex-1">
+<div>
+<h3 class="font-h3 text-[20px] text-on-surface leading-tight">Maplewood Estates Phase II</h3>
+<p class="font-h3 text-[18px] text-primary mt-1">$1,850,000</p>
+</div>
+<!-- AI Bubble -->
+<div class="mt-auto bg-[#eaf4f4] rounded-xl rounded-tl-sm p-3 flex items-start gap-2 border border-primary-container/10">
+<span class="material-symbols-outlined text-[16px] text-primary mt-0.5 shrink-0" data-icon="assignment_turned_in">assignment_turned_in</span>
+<p class="font-body-md text-[13px] text-on-surface-variant leading-snug">Final walkthrough scheduled for tomorrow at 10 AM. All documents prepared.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Upcoming Opportunities -->
+<section class="flex flex-col gap-md">
+<div class="flex justify-between items-end">
+<h2 class="font-h2 text-h2 text-on-surface">Upcoming Opportunities</h2>
+<button class="font-label-sm text-label-sm text-primary hover:text-primary-fixed-variant transition-colors flex items-center gap-1">
+                    View Matrix <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Opportunity Card 1 -->
+<article class="bg-surface-container-lowest rounded-[1.5rem] shadow-[0_4px_20px_rgb(0,0,0,0.03)] overflow-hidden flex flex-col border border-outline-variant/30">
+<div class="relative h-40 w-full overflow-hidden">
+<img alt="Commercial highrise" class="w-full h-full object-cover" data-alt="low angle shot of modern glass commercial highrise building reaching into a cloudy sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz9N87Cb-8thNi0rYyDz4cttjtll1s39XYGj8vZRrkL_pn4haaU9qPkk5AEyftslVa6WKhsxQ6AoWeY7ohOY7UnW2J6iARdz_W2T-XC_qPD6mPj3Zf-6fpsOfCU2ce-80YdzyQ4hxbA78mkvtYYjhl81n8up1zxYsoI2JByEW_mBzE46g1-Shzb-2kJU-CCWyKJEU51nIFguxPRiUtTF2P4tNxRI8Uqe3Wed17bshGeyjaZnZO09JBIqic4UhZ4z451KAt5RIybLI"/>
+<div class="absolute top-3 left-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-[11px] shadow-sm"><span class="material-symbols-outlined text-[12px] mr-1" data-icon="trending_up">trending_up</span>Opportunity</span>
+</div>
+</div>
+<div class="p-sm px-4 pb-4 flex flex-col gap-2">
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface line-clamp-1">Downtown Tech Hub</h3>
+<div class="flex justify-between items-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Commercial</p>
+<p class="font-label-sm text-label-sm text-primary font-bold">Est. $12M</p>
+</div>
+<div class="mt-2 bg-surface-container-lowest border border-outline-variant/40 rounded-lg p-2 flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-[#a3eff3]"></div>
+<p class="font-body-md text-[12px] text-on-surface-variant line-clamp-1">AI Match: 92% for Client Alpha</p>
+</div>
+</div>
+</article>
+<!-- Opportunity Card 2 -->
+<article class="bg-surface-container-lowest rounded-[1.5rem] shadow-[0_4px_20px_rgb(0,0,0,0.03)] overflow-hidden flex flex-col border border-outline-variant/30">
+<div class="relative h-40 w-full overflow-hidden">
+<img alt="Desert modern home" class="w-full h-full object-cover" data-alt="architectural rendering of a modern luxury home in a desert landscape with minimal structural lines and warm earthy tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDID4M4RZ3tdzag08_KNZn-VMpeUxif4sb8lHJTlq4yvTdWN7z5TgkuLY_B05YvVoQ_JHkdaeu10JYOmIxSQ4cekXPHPG1KLVXm3h0qsigBfyNPppTuP4Az6N3cPJK-7FiD1xOkY5OOfFLJ5JZmeowSwzTGVpBa6NFW7nruoZ2yFwAtXZuPcga-BWjY_KDtKqyT1rQII5f_24j8Hi9qsEZOPj4zedeHg8YloJvX0wIWsYwkGKdkcfOrjeHrZiLTT_RNcmixmpndRfA"/>
+<div class="absolute top-3 left-3">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-[11px] shadow-sm"><span class="material-symbols-outlined text-[12px] mr-1" data-icon="schedule">schedule</span>Upcoming</span>
+</div>
+</div>
+<div class="p-sm px-4 pb-4 flex flex-col gap-2">
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface line-clamp-1">Oasis Development Site</h3>
+<div class="flex justify-between items-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Land/Dev</p>
+<p class="font-label-sm text-label-sm text-primary font-bold">Est. $3.5M</p>
+</div>
+<div class="mt-2 bg-surface-container-lowest border border-outline-variant/40 rounded-lg p-2 flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-[#dbe4e3]"></div>
+<p class="font-body-md text-[12px] text-on-surface-variant line-clamp-1">Zoning approval pending Q3</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (FAB) with inline input expansion -->
+<div class="fixed bottom-24 right-6 z-50 flex items-center justify-end group">
+<!-- Expanded input (hidden by default, shown on group-hover/focus-within) -->
+<div class="absolute right-14 w-0 overflow-hidden group-hover:w-[280px] focus-within:w-[280px] transition-all duration-300 ease-in-out flex items-center bg-surface-container-lowest rounded-full shadow-[0_4px_20px_rgb(0,0,0,0.1)] border border-primary/10 h-14">
+<input class="flex-1 bg-transparent border-none focus:ring-0 py-3 pl-5 pr-2 font-body-md text-on-surface placeholder:text-outline-variant outline-none w-full min-w-[200px]" placeholder="Ask your agents..." type="text"/>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center mr-2 shrink-0 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- FAB -->
+<button class="w-14 h-14 rounded-full bg-primary text-on-primary shadow-lg shadow-primary/20 flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-10">
+<span class="material-symbols-outlined text-[24px]" data-icon="mic">mic</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-40 bg-surface-container-lowest border-t border-outline-variant/20 px-6 pb-safe pt-2 shadow-[0_-4px_20px_rgb(0,0,0,0.02)]">
+<div class="flex justify-between items-center max-w-md mx-auto h-16">
+<!-- Active Tab -->
+<button class="flex flex-col items-center justify-center gap-1 min-w-[64px] text-primary">
+<div class="w-16 h-8 rounded-full bg-secondary-container flex items-center justify-center mb-0.5 hover:bg-[#e7eefe]">
+<span class="material-symbols-outlined text-primary" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<span class="font-label-sm text-[12px] font-semibold">Activity feed</span>
+</button>
+<!-- Inactive Tab -->
+<button class="flex flex-col items-center justify-center gap-1 min-w-[64px] text-on-surface-variant hover:text-on-surface transition-colors">
+<div class="w-16 h-8 rounded-full flex items-center justify-center mb-0.5 transition-colors hover:bg-[#e7eefe]">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<span class="font-label-sm text-[12px] font-medium">Agents</span>
+</button>
+<!-- Inactive Tab -->
+<button class="flex flex-col items-center justify-center gap-1 min-w-[64px] text-on-surface-variant hover:text-on-surface transition-colors">
+<div class="w-16 h-8 rounded-full flex items-center justify-center mb-0.5 transition-colors hover:bg-[#e7eefe]">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</div>
+<span class="font-label-sm text-[12px] font-medium">Network</span>
+</button>
+</div>
+</nav>
+</body></html>

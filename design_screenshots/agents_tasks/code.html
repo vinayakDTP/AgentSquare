@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Workspace - Agents</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#cfc6ae",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ece2c9",
+                        "tertiary-container": "#a59d87",
+                        "inverse-primary": "#87d3d7",
+                        "on-background": "#151c27",
+                        "on-secondary-fixed": "#151d1d",
+                        "on-primary-container": "#003b3e",
+                        "surface-container-highest": "#dce2f3",
+                        "secondary": "#576060",
+                        "tertiary": "#645e4b",
+                        "background": "#f9f9ff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#5b6464",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#d8e1e0",
+                        "inverse-surface": "#2a313d",
+                        "error-container": "#ffdad6",
+                        "outline": "#6f7979",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#dce2f3",
+                        "outline-variant": "#bec8c9",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#5da9ad",
+                        "surface": "#f9f9ff",
+                        "inverse-on-surface": "#ebf1ff",
+                        "surface-container": "#e7eefe",
+                        "on-primary-fixed-variant": "#004f52",
+                        "primary": "#0c696d",
+                        "on-primary-fixed": "#002021",
+                        "surface-container-low": "#f0f3ff",
+                        "primary-fixed": "#a3eff3",
+                        "on-surface": "#151c27",
+                        "on-tertiary-fixed": "#201b0c",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#3a3523",
+                        "surface-dim": "#d3daea",
+                        "surface-container-high": "#e2e8f8",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-fixed": "#dbe4e3",
+                        "on-secondary-fixed-variant": "#404848",
+                        "secondary-fixed-dim": "#bfc8c7",
+                        "primary-fixed-dim": "#87d3d7",
+                        "on-surface-variant": "#3f4949",
+                        "on-tertiary-fixed-variant": "#4c4634",
+                        "surface-tint": "#0c696d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "margin": "32px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "h1": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "h3": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h2": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md text-primary font-plus-jakarta-sans antialiased docked full-width top-0 border-b border-slate-100 dark:border-slate-800 shadow-sm shadow-slate-200/50 dark:shadow-none transition-all duration-300 ease-in-out flex justify-between items-center px-6 py-4 w-full sticky top-0 z-50">
+<div class="flex items-center gap-sm">
+<img alt="Broker Profile" class="w-10 h-10 rounded-full object-cover" data-alt="Professional headshot of a real estate broker smiling warmly, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOEWrxLaKygUDsayKqGSYi8aZp-fVJlI3raGU14L0S04ne1ecp_xcUm6mWcfF9DjyXvA1IotXXXrUjaL693GGaqloN7sL6Ty48bXhomsXqlFhVPxfehSUoTUP73cf_bAAXJwNdjStNLVES6R8pBpA-8AITgp2KrCPQIpuJkUnmkSMLii9gDVbLIZckqtmboJ9qrXYgV1LexkxZilg6u9mV9HNns9q-ob1RBAKl4ZbaMCsn2ZRN0PRW2Zcr7edfXos-JwVFNBXsrHo"/>
+<h1 class="text-xl font-bold text-primary">AgentSquare</h1>
+</div>
+<button class="hover:bg-slate-50 dark:hover:bg-slate-800/50 p-2 rounded-full transition-colors text-primary">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<main class="max-w-7xl mx-auto px-margin pt-md">
+<!-- Segmented Control -->
+<div class="flex justify-center mb-lg">
+<div class="bg-surface-container-high p-xs rounded-full inline-flex">
+<button class="px-md py-sm rounded-full font-label-sm shadow-sm transition-all bg-[#e7eefe] text-[#004f52]">Active Agents</button>
+<button class="px-md py-sm rounded-full font-label-sm hover:bg-surface/50 transition-all text-[#004f52]">Tasks</button>
+</div>
+</div>
+<!-- Active Agents Section -->
+<section class="mb-xl">
+<div class="flex justify-between items-end mb-md">
+<div>
+<h2 class="font-h2 text-h2 text-on-background mb-xs">Your Agents</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your active AI assistants.</p>
+</div>
+<button class="flex items-center gap-xs bg-primary text-on-primary px-sm py-xs rounded-full font-label-sm text-label-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    Create Custom Agent
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Agent Card 1 -->
+<div class="bg-white rounded-[1.5rem] p-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-container flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<span class="px-sm py-xs bg-primary-container/20 text-on-primary-container rounded-full font-label-sm text-[11px] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary block"></span> Active
+                        </span>
+</div>
+<h3 class="font-h3 text-h3 text-on-background mb-xs">Social Media Manager</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Handles daily posts, engagement, and trend monitoring across platforms.</p>
+<div class="flex gap-sm mt-auto">
+<button class="flex-1 hover:bg-surface-container-highest py-sm rounded-xl font-label-sm text-label-sm transition-colors text-center bg-[#e7eefe] text-[#004f52] border-none">Configure</button>
+<button class="flex-1 bg-primary text-on-primary py-sm rounded-xl font-label-sm text-label-sm hover:opacity-90 transition-opacity text-center flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">chat</span> Chat
+                        </button>
+</div>
+</div>
+<!-- Agent Card 2 -->
+<div class="bg-white rounded-[1.5rem] p-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-container flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined">person_search</span>
+</div>
+<span class="px-sm py-xs bg-tertiary-container/20 text-on-tertiary-container rounded-full font-label-sm text-[11px] flex items-center gap-1">
+                            3 new leads
+                        </span>
+</div>
+<h3 class="font-h3 text-h3 text-on-background mb-xs">Lead Qualifier</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Engages initial inquiries, scores leads, and schedules follow-ups.</p>
+<div class="flex gap-sm mt-auto">
+<button class="flex-1 hover:bg-surface-container-highest py-sm rounded-xl font-label-sm text-label-sm transition-colors text-center bg-[#e7eefe] text-[#004f52] border-none">Configure</button>
+<button class="flex-1 bg-primary text-on-primary py-sm rounded-xl font-label-sm text-label-sm hover:opacity-90 transition-opacity text-center flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">chat</span> Chat
+                        </button>
+</div>
+</div>
+<!-- Agent Card 3 -->
+<div class="bg-white rounded-[1.5rem] p-md shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-container flex flex-col h-full">
+<div class="flex justify-between items-start mb-md">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">description</span>
+</div>
+<span class="px-sm py-xs bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-[11px] flex items-center gap-1">
+                            Idle
+                        </span>
+</div>
+<h3 class="font-h3 text-h3 text-on-background mb-xs">Documentation Agent</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Drafts contracts, summarizes meetings, and organizes property files.</p>
+<div class="flex gap-sm mt-auto">
+<button class="flex-1 hover:bg-surface-container-highest py-sm rounded-xl font-label-sm text-label-sm transition-colors text-center bg-[#e7eefe] text-[#004f52] border-none">Configure</button>
+<button class="flex-1 bg-primary text-on-primary py-sm rounded-xl font-label-sm text-label-sm hover:opacity-90 transition-opacity text-center flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">chat</span> Chat
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Marketplace Section -->
+<section class="mb-xl">
+<div class="mb-md">
+<h2 class="font-h2 text-h2 text-on-background mb-xs">Discover Agents</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Templates to expand your workspace capabilities.</p>
+</div>
+<div class="flex overflow-x-auto gap-md pb-sm snap-x -mx-margin px-margin md:mx-0 md:px-0 scrollbar-hide">
+<!-- Template 1 -->
+<div class="min-w-[280px] bg-surface-container-lowest border border-surface-container rounded-[1.5rem] p-md snap-start shrink-0">
+<div class="flex items-center gap-sm mb-sm">
+<div class="p-sm bg-surface-container rounded-lg text-on-surface">
+<span class="material-symbols-outlined">concierge</span>
+</div>
+<h4 class="font-h3 text-[18px] text-on-background">Post-Sale Concierge</h4>
+</div>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-sm">Manages client onboarding and post-closing tasks.</p>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Add to Workspace</button>
+</div>
+<!-- Template 2 -->
+<div class="min-w-[280px] bg-surface-container-lowest border border-surface-container rounded-[1.5rem] p-md snap-start shrink-0">
+<div class="flex items-center gap-sm mb-sm">
+<div class="p-sm bg-surface-container rounded-lg text-on-surface">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<h4 class="font-h3 text-[18px] text-on-background">Market Analyst</h4>
+</div>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-sm">Provides daily localized market trends and pricing reports.</p>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Add to Workspace</button>
+</div>
+<!-- Template 3 -->
+<div class="min-w-[280px] bg-surface-container-lowest border border-surface-container rounded-[1.5rem] p-md snap-start shrink-0">
+<div class="flex items-center gap-sm mb-sm">
+<div class="p-sm bg-surface-container rounded-lg text-on-surface">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<h4 class="font-h3 text-[18px] text-on-background">Email Outreach</h4>
+</div>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-sm">Automates drip campaigns and newsletter distribution.</p>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Add to Workspace</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Expandable FAB Command Input -->
+<div class="fixed bottom-[96px] right-margin z-40 flex items-center justify-end group">
+<!-- Expanded Input -->
+<div class="absolute right-0 flex items-center bg-white rounded-full shadow-lg border border-surface-container-high focus-within:border-primary transition-all duration-300 w-14 opacity-0 group-hover:w-[320px] group-hover:opacity-100 group-focus-within:w-[320px] group-focus-within:opacity-100 overflow-hidden pr-14 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto">
+<button class="text-on-surface-variant/70 hover:text-primary p-3 transition-colors flex-shrink-0">
+<span class="material-symbols-outlined">mic</span>
+</button>
+<input class="flex-grow bg-transparent border-none focus:ring-0 font-body-md text-on-background px-2 placeholder-on-surface-variant/70 w-full" placeholder="Ask your agents to do something..." type="text"/>
+<button class="bg-primary text-on-primary w-10 h-10 flex-shrink-0 rounded-full flex items-center justify-center hover:opacity-90 transition-opacity shadow-sm mr-1">
+<span class="material-symbols-outlined text-[20px]">trending_flat</span>
+</button>
+</div>
+<!-- FAB (Default State) -->
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center hover:opacity-90 transition-all duration-300 group-hover:opacity-0 group-focus-within:opacity-0 pointer-events-auto relative z-10">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+<!-- BottomNavBar -->
+<nav class="bg-white dark:bg-slate-900 font-plus-jakarta-sans text-[11px] font-medium tracking-wide text-primary fixed bottom-0 w-full rounded-t-[2rem] border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.04)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 md:hidden">
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-2 hover:text-primary active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+            Activity feed
+        </button>
+<button class="flex flex-col items-center justify-center bg-primary/10 text-primary rounded-2xl px-5 py-2 hover:text-primary active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+            Agents
+        </button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 py-2 hover:text-primary active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">group</span>
+            Network
+        </button>
+</nav>
+<!-- Desktop Sidebar mapping for wider screens (Hidden on mobile) -->
+<aside class="hidden md:flex flex-col w-[240px] fixed left-0 top-[73px] bottom-0 border-r border-surface-container bg-surface px-md py-lg z-40">
+<nav class="flex flex-col gap-sm">
+<a class="flex items-center gap-sm px-sm py-sm rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span> Activity
+             </a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-xl bg-primary-container/20 text-primary-container font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span> Agents
+             </a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">group</span> Leads
+             </a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">folder_shared</span> Vault
+             </a>
+</nav>
+</aside>
+<style>
+        /* Adjust main padding for desktop sidebar */
+        @media (min-width: 768px) {
+            main {
+                padding-left: calc(240px + 32px); /* sidebar width + margin */
+            }
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

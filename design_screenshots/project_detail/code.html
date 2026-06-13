@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Details - Estates</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-fixed-dim": "#cfc6ae",
+                "inverse-surface": "#2a313d",
+                "outline": "#6f7979",
+                "on-primary": "#ffffff",
+                "surface-container-highest": "#dce2f3",
+                "tertiary-fixed": "#ece2c9",
+                "secondary-container": "#d8e1e0",
+                "secondary-fixed-dim": "#bfc8c7",
+                "on-surface": "#151c27",
+                "primary-fixed-dim": "#87d3d7",
+                "on-secondary-container": "#5b6464",
+                "on-tertiary": "#ffffff",
+                "error-container": "#ffdad6",
+                "primary-container": "#5da9ad",
+                "outline-variant": "#bec8c9",
+                "surface": "#f9f9ff",
+                "surface-container": "#e7eefe",
+                "on-tertiary-fixed": "#201b0c",
+                "surface-container-lowest": "#ffffff",
+                "surface-bright": "#f9f9ff",
+                "surface-tint": "#0c696d",
+                "secondary": "#576060",
+                "on-primary-fixed-variant": "#004f52",
+                "on-secondary-fixed": "#151d1d",
+                "on-tertiary-container": "#3a3523",
+                "on-error": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-secondary": "#ffffff",
+                "on-secondary-fixed-variant": "#404848",
+                "on-primary-container": "#003b3e",
+                "primary": "#0c696d",
+                "on-surface-variant": "#3f4949",
+                "tertiary": "#645e4b",
+                "on-tertiary-fixed-variant": "#4c4634",
+                "surface-container-low": "#f0f3ff",
+                "inverse-on-surface": "#ebf1ff",
+                "background": "#f9f9ff",
+                "surface-container-high": "#e2e8f8",
+                "on-primary-fixed": "#002021",
+                "surface-variant": "#dce2f3",
+                "inverse-primary": "#87d3d7",
+                "secondary-fixed": "#dbe4e3",
+                "on-background": "#151c27",
+                "tertiary-container": "#a59d87",
+                "primary-fixed": "#a3eff3",
+                "surface-dim": "#d3daea",
+                "error": "#ba1a1a"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "sm": "12px",
+                "base": "8px",
+                "xs": "4px",
+                "xl": "80px",
+                "margin": "32px",
+                "lg": "48px",
+                "gutter": "24px",
+                "md": "24px"
+        },
+        "fontFamily": {
+                "label-sm": [
+                        "Inter"
+                ],
+                "h2": [
+                        "Plus Jakarta Sans"
+                ],
+                "h1": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "h3": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "label-sm": [
+                        "13px",
+                        {
+                                "lineHeight": "1",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "h2": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "h1": [
+                        "40px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "h3": [
+                        "24px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen pb-24 md:pb-12 bg-background">
+<!-- TopAppBar -->
+<header class="bg-white/90 backdrop-blur-md text-primary font-h3 text-sm font-semibold tracking-tight docked full-width top-0 border-b border-primary/10 shadow-sm shadow-primary/5 fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-16 transition-colors">
+<button aria-label="Go Back" class="flex items-center justify-center p-2 text-primary hover:bg-primary/5 transition-colors rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="text-xl font-bold text-primary">AgentSquare</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant bg-surface-container flex items-center justify-center text-primary font-label-sm text-label-sm">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional woman with warm smile, soft natural lighting, corporate casual attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDljOdL8at6xeDiene54yMurFT2LoRdbde9rRsWdAY9Eokyq-dQdYXbm4S_BpKgf-zjKOxejzDyLjySpa1Q4WpPKZEqfArIiWB-2ji4JLCDHXYXHjghvbBQ6yw5tfC_uGgdBsW6rzEup-yGBuaD1VDvP01do0IBJGC7xtjTY3xVDAgdyAUfAqC4B5q7vo8UpaWwHaVxUTIFpbYg-IyH0IYAMEV6-xOkZlsqnqfREd7Kcyw8_rhQpmOXRXOdpXEkl0gklCUJ3iSZa4E"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-gutter max-w-7xl mx-auto flex flex-col gap-margin pb-28 md:pb-16">
+<!-- Header Image & Hero Card -->
+<section class="relative w-full h-[400px] md:h-[500px] rounded-[1.5rem] overflow-hidden shadow-[0_4px_20px_rgb(0,0,0,0.04)] bg-surface-container group">
+<img alt="Vista Del Mar Estates" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Exterior view of a modern luxury estate at twilight, warm interior lights glowing through large glass windows, serene infinity pool reflecting the pastel sunset sky, lush manicured landscaping" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2kk2IAAIbHMRWSBbOlKBDYQw7BN1HS4gjUP4F7Eypr3LAo5GTSFlGNY-TuZq2yb6-4rON6Xll8KUROLaGJ_Yl2Ldvw6PXb9cwB__0tQ4-7lUSlMA3hSjF146s823OZQfQe5N_MCXGZLLEPzeK-78gFr4npFRK92Ga8WAOySS2KOaNNSeEOCv3KZm5TA2fCHh3PgQEL-2yH0UrIMudA6VWXFpF2V9gfmfWEybc2nykx16JYxRTkwZfUk6EjZXyVrUW6rVjx09SNbU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-6 md:p-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="flex flex-col gap-sm text-surface-container-lowest">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Processing</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">42 leads</span>
+</div>
+<h1 class="font-h1 text-h1 text-surface-container-lowest">Vista Del Mar Estates</h1>
+<p class="font-body-lg text-body-lg text-surface-container-low max-w-2xl opacity-90">An exclusive enclave of ultra-luxury coastal residences redefining modern oceanfront living.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 shrink-0">
+<button class="px-6 py-3 rounded-lg font-label-sm text-label-sm transition-colors flex items-center justify-center gap-2 bg-[#e7eefe] text-[#004f52] hover:opacity-90">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+                        Assign Agent
+                    </button>
+<button class="px-6 py-3 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">bar_chart</span>
+                        View Analytics
+                    </button>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Left Column: Metrics & Narrative -->
+<div class="lg:col-span-2 flex flex-col gap-margin">
+<!-- Metrics Bento Grid -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-5 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-outline-variant/20 flex flex-col gap-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Processing</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Projected ROI</p>
+<p class="font-h2 text-h2 text-on-background">18.4%</p>
+</div>
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-5 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-outline-variant/20 flex flex-col gap-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Active</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Units Available</p>
+<p class="font-h2 text-h2 text-on-background">12<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Active</span></p>
+</div>
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-5 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-outline-variant/20 flex flex-col gap-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Processing</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Completion</p>
+<p class="font-h2 text-h2 text-on-background">Q4 '25</p>
+</div>
+<div class="bg-surface-container-lowest rounded-[1.5rem] p-5 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-outline-variant/20 flex flex-col gap-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Processing</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Entry Price</p>
+<p class="font-h2 text-h2 text-on-background">$4.2M</p>
+</div>
+</section>
+<!-- Project Narrative (AI Insights) -->
+<section class="bg-surface-container-lowest rounded-[1.5rem] p-6 md:p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-outline-variant/20 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+<h2 class="font-h3 text-h3 text-on-background">Project Narrative</h2>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container font-label-sm text-[10px] uppercase tracking-wider ml-auto rounded-full">Ai generated</span>
+</div>
+<div class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<p>Vista Del Mar represents a unique market fit for high-net-worth individuals seeking turnkey coastal properties with robust smart home integrations. The current market trajectory in the Malibu quadrant indicates a <strong>12% supply deficit</strong> in this specific luxury tier.</p>
+<div class="bg-primary-fixed/10 p-4 rounded-xl border-l-4 border-primary">
+<p class="font-label-sm text-label-sm text-on-primary-container mb-1">Key Insight</p>
+<p class="text-sm">Buyer sentiment analysis shows a strong preference for the integrated wellness amenities planned for Phase 2. Recommending targeted ad spend allocation towards wellness and lifestyle demographics over pure investment cohorts.</p>
+</div>
+<p>Pricing strategy aligns perfectly with recent comp sales at Point Dume, suggesting current entry prices may be adjusted upwards by 3-5% before Q3 without negatively impacting absorption rates.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Connected Agents -->
+<div class="lg:col-span-1">
+<section class="bg-surface-container-lowest rounded-[1.5rem] p-6 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-outline-variant/20 h-full flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-h3 text-h3 text-on-background">Connected Agents</h2>
+<button aria-label="Add Agent" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors bg-[#e7eefe] text-[#004f52]">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 flex-grow">
+<!-- Agent Card 1 -->
+<div class="p-4 rounded-[1.5rem] bg-surface-container-low/50 hover:bg-surface-container-low transition-colors border border-outline-variant/10 flex items-start gap-4 cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[24px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-label-sm text-label-sm text-on-background text-base">Lead Qualifier Alpha</h3>
+<span class="w-2 h-2 rounded-full bg-primary mt-1"></span>
+</div>
+<p class="font-body-md text-[13px] text-on-surface-variant leading-tight mb-2">Handling incoming inquiries from coastal campaigns.</p>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Active</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">$1.2k/day</span>
+</div>
+</div>
+</div>
+<!-- Agent Card 2 -->
+<div class="p-4 rounded-[1.5rem] bg-surface-container-low/50 hover:bg-surface-container-low transition-colors border border-outline-variant/10 flex items-start gap-4 cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[24px]" style="font-variation-settings: 'FILL' 1;">campaign</span>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-label-sm text-label-sm text-on-background text-base">Ad Manager Delta</h3>
+<span class="w-2 h-2 rounded-full bg-tertiary mt-1"></span>
+</div>
+<p class="font-body-md text-[13px] text-on-surface-variant leading-tight mb-2">Optimizing Meta &amp; Google ad spend across luxury tiers.</p>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Active</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">$1.2k/day</span>
+</div>
+</div>
+</div>
+<!-- Agent Card 3 -->
+<div class="p-4 rounded-[1.5rem] bg-surface-container-low/50 hover:bg-surface-container-low transition-colors border border-outline-variant/10 flex items-start gap-4 cursor-pointer opacity-70">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[24px]" style="font-variation-settings: 'FILL' 1;">contract</span>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-label-sm text-label-sm text-on-background text-base">Contract Drafter</h3>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Paused</span>
+</div>
+<p class="font-body-md text-[13px] text-on-surface-variant leading-tight mb-2">Awaiting final legal review of Phase 1 addendums.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (Expanding Input) -->
+<div class="fixed bottom-24 right-4 z-[60] flex justify-end md:bottom-20 md:right-8" x-data="{ open: false }">
+<div :class="open ? 'w-[calc(100vw-2rem)] md:w-[400px] bg-surface-container-lowest p-2 rounded-full shadow-lg border border-outline-variant/20' : 'w-14 h-14 bg-primary rounded-[1rem] shadow-lg hover:bg-on-primary-fixed-variant transition-colors cursor-pointer'" class="transition-all duration-300 ease-in-out flex items-center relative overflow-hidden group">
+<!-- Rest State (FAB) -->
+<button @click="open = true" aria-label="Open voice command" class="absolute inset-0 w-full h-full text-on-primary flex items-center justify-center" x-show="!open">
+<span class="material-symbols-outlined text-[24px]">mic</span>
+</button>
+<!-- Active State (Input) -->
+<div class="flex-grow flex items-center gap-2 w-full" style="display: none;" x-show="open">
+<button @click="open = false" aria-label="Close input" class="w-10 h-10 rounded-full text-on-surface-variant flex items-center justify-center shrink-0 hover:bg-surface-container transition-colors">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Processing</span>
+</button>
+<input autofocus="" class="w-full bg-surface-container-low border-none rounded-full px-4 py-2 font-body-md text-on-surface focus:ring-2 focus:ring-primary/20 placeholder:text-on-surface-variant/60" placeholder="Ask your agents..." type="text"/>
+<button aria-label="Send command" class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 hover:bg-on-primary-fixed-variant transition-colors shadow-sm">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px]">Processing</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant/20 pb-safe pt-2 px-6 flex justify-around items-center z-50 h-[72px] md:hidden">
+<a class="flex flex-col items-center gap-1 text-primary w-20" href="#">
+<div class="w-16 h-8 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<span class="font-label-sm text-[11px] font-semibold">Activity feed</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant w-20 hover:text-on-surface transition-colors" href="#">
+<div class="w-16 h-8 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">smart_toy</span>
+</div>
+<span class="font-label-sm text-[11px] font-medium">Agents</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant w-20 hover:text-on-surface transition-colors" href="#">
+<div class="w-16 h-8 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">group</span>
+</div>
+<span class="font-label-sm text-[11px] font-medium">Network</span>
+</a>
+</nav>
+</body></html>

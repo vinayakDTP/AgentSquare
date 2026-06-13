@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AgentSquare CRM - Mobile</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#004f53",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "background": "#f8f9ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-fixed": "#ffdbd0",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#0c696d",
+                    "surface-container": "#e5eeff",
+                    "on-tertiary-fixed-variant": "#7f2a0d",
+                    "outline": "#6f7979",
+                    "tertiary": "#7f2a0d",
+                    "on-surface-variant": "#3f4949",
+                    "inverse-primary": "#87d3d7",
+                    "secondary-container": "#d4e6e5",
+                    "on-surface": "#0b1c30",
+                    "on-primary-container": "#9ae6ea",
+                    "primary-fixed": "#a3eff4",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "on-secondary-fixed": "#0e1e1e",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#0c696d",
+                    "tertiary-container": "#9f4122",
+                    "on-tertiary-fixed": "#3a0b00",
+                    "tertiary-fixed-dim": "#ffb59e",
+                    "surface-bright": "#f8f9ff",
+                    "secondary-fixed": "#d4e6e5",
+                    "on-secondary-fixed-variant": "#3a4a49",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#d3e4fe",
+                    "outline-variant": "#bec8c9",
+                    "on-tertiary-container": "#ffcebf",
+                    "on-secondary-container": "#576867",
+                    "surface-container-highest": "#d3e4fe",
+                    "surface-container-low": "#eff4ff",
+                    "secondary-fixed-dim": "#b8cac9",
+                    "inverse-surface": "#213145",
+                    "on-primary-fixed": "#002021",
+                    "primary-fixed-dim": "#87d3d7",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "secondary": "#516161",
+                    "surface": "#f8f9ff",
+                    "on-primary-fixed-variant": "#004f52",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "lg": "48px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "xl": "80px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-sm": ["Inter"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #f8f9ff;
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface dark:bg-surface shadow-[0px_4px_20px_rgba(12,105,109,0.05)] flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center space-x-3">
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A professional headshot of a real estate executive with a friendly expression, captured in high-resolution with soft studio lighting. The background is a blurred, high-end modern office interior with a clean, light-mode aesthetic. The color palette is composed of soft whites and subtle teals, matching the Corporate Modern design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnnDnPQ1UKxTBMolyZQkYRYxpe_Xkrxko_hrh1A37z49XUO5KjZnOQUo23d6a0b2Nx2DJ6SlkYy9IT3vtVSscMwJHyEnh4YlEKKTt5R1OgEglr_VKrsAVGCG_e-h3rQuFS8jVh3ih8cTea_1cxLUtuLwHwcv0_A7WhzveIW2unbDIcajVCGM5juVJ-mKGg4nEC7GffkzEOV_IBlgs7xWfOwEteFfgyRkrnNYBNX07wmxaABDGnUi3JkAWxhS3j6HF9gO34Sigs4gw"/>
+</div>
+<h1 class="font-headline-md text-headline-md-mobile md:text-headline-md text-primary dark:text-primary-fixed font-bold tracking-tight">AgentSquare</h1>
+<button class="text-primary dark:text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</nav>
+<main class="pt-20 pb-28 px-margin-mobile">
+<!-- Segmented Control -->
+<div class="bg-surface-container-low p-1.5 rounded-full flex items-center mb-md">
+<button class="flex-1 py-2.5 rounded-full font-label-md text-label-md bg-primary-container text-on-primary-container transition-all duration-200">
+                Leads
+            </button>
+<button class="flex-1 py-2.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all duration-200">
+                Clients
+            </button>
+<button class="flex-1 py-2.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-all duration-200">
+                Projects
+            </button>
+</div>
+<!-- Search Bar -->
+<div class="relative mb-lg">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-4 pl-12 pr-6 font-body-md text-body-md focus:ring-2 focus:ring-primary-container transition-all" placeholder="Search…" type="text"/>
+</div>
+<!-- Section Title -->
+<div class="flex items-center justify-between mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Leads</h2>
+<button class="text-primary font-label-md text-label-md">View All</button>
+</div>
+<!-- Lead Cards List -->
+<div class="space-y-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(12,105,109,0.05)] border border-outline-variant/30 active:scale-[0.98] transition-transform">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-0.5">Sarah Jenkins</h3>
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+                            Warm lead
+                        </div>
+</div>
+<button class="text-outline">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg border-l-4 border-primary-container">
+<p class="font-label-sm text-label-sm text-primary mb-1 uppercase tracking-wider">Lead Qualifier AI</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">"Responded to pricing inquiry regarding the Westside project. Requested a viewing for Thursday."</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(12,105,109,0.05)] border border-outline-variant/30 active:scale-[0.98] transition-transform">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-0.5">Marcus Thompson</h3>
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">
+                            New Lead
+                        </div>
+</div>
+<button class="text-outline">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg border-l-4 border-primary-container">
+<p class="font-label-sm text-label-sm text-primary mb-1 uppercase tracking-wider">Property Matcher AI</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">"Suggested 3 listings in North Hills based on search history. Interaction pending."</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(12,105,109,0.05)] border border-outline-variant/30 active:scale-[0.98] transition-transform">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-0.5">Elena Rodriguez</h3>
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+                            Hot Lead
+                        </div>
+</div>
+<button class="text-outline">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg border-l-4 border-primary-container">
+<p class="font-label-sm text-label-sm text-primary mb-1 uppercase tracking-wider">Appointment Bot</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">"Confirmed appraisal meeting for tomorrow 10:00 AM. Sentiment analysis: High urgency."</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center py-3 px-4 bg-surface dark:bg-inverse-surface rounded-t-xl z-50 shadow-[0px_-4px_20px_rgba(12,105,109,0.05)]">
+<!-- Activity Feed (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-6 py-1.5 hover:bg-secondary-container/50 dark:hover:bg-secondary/20 rounded-2xl transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md mt-1">Activity Feed</span>
+</button>
+<!-- Agents (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-secondary-container dark:text-secondary-fixed-dim px-6 py-1.5 hover:bg-secondary-container/50 dark:hover:bg-secondary/20 rounded-2xl transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-md text-label-md mt-1">Agents</span>
+</button>
+<!-- Network (Active) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-6 py-1.5 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md mt-1">Network</span>
+</button>
+</nav>
+<script>
+        // Micro-interaction for lead cards
+        document.querySelectorAll('.lead-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    card.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+    </script>
+</body></html>
